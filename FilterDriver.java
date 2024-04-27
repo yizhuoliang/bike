@@ -25,8 +25,8 @@ public class FilterDriver {
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        // Set the number of reduce tasks to one
-        job.setNumReduceTasks(1);
+        // We don't want too many output files, which are messy
+        job.setNumReduceTasks(5);
 
         // Setting multiple input paths
         FileInputFormat.addInputPath(job, new Path(args[0]));
